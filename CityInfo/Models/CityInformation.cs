@@ -1,4 +1,6 @@
 ﻿using System;
+using NewsAPI.Models;
+
 namespace CityInfo.Models
 {
 	public class CityInformation
@@ -9,8 +11,8 @@ namespace CityInfo.Models
 		}
 
 		public string Name { get; set; }
-		public List<News> News { get; set; }
-		public Weather CurrentWeather { get; set; }
+		public List<Article> News { get; set; }
+		public CurrentWeather CurrentWeather { get; set; }
 	}
 }	
 

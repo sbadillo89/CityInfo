@@ -19,6 +19,7 @@
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+    <PackageReference Include="NewsAPI" Version="0.6.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,11 +32,16 @@
     <None Remove="Services\" />
     <None Remove="Newtonsoft.Json" />
     <None Remove="Services\NewsService\" />
+    <None Remove="NewsAPI" />
+    <None Remove="Services\WeatherService\" />
+    <None Remove="Services\CountryService\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
     <Folder Include="Repositories\" />
     <Folder Include="Services\" />
     <Folder Include="Services\NewsService\" />
+    <Folder Include="Services\WeatherService\" />
+    <Folder Include="Services\CountryService\" />
   </ItemGroup>
 </Project>
