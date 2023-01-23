@@ -1,9 +1,7 @@
 ﻿using CityInfo.Models;
-using CityInfo.Services.NewsService;
-using CityInfo.Services.WeatherService;
-using CityInfo.Services.CountryService;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
+using CityInfo.Repositories;
+using CityInfo.Services;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +14,12 @@ builder.Services.AddSwaggerGen();
 
 var formatSettings = builder.Configuration.GetSection("ExternalApiSettings").Get<ExternalApiSettings>();
 builder.Services.Configure<ExternalApiSettings>(builder.Configuration.GetSection("ExternalApiSettings"));
+
+var conex = builder.Configuration.GetConnectionString("DbConnection");
+
+// Registro del Contexto de datos como Servicio
+builder.Services.AddDbContext<SerbadTestContext>(options =>
+   options.UseSqlServer(conex));
 
 builder.Services.AddHttpClient();
 builder.Services.AddHttpClient("NewsApi", client =>
@@ -31,6 +35,8 @@ builder.Services.AddHttpClient("OpenWeather", client =>
 builder.Services.AddScoped<INewsService, NewsService>();
 builder.Services.AddScoped<IWeatherService, WeatherService>();
 builder.Services.AddScoped<ICountryService, CountryService>();
+builder.Services.AddScoped<IHistoryService, HistorySservice>();
+builder.Services.AddScoped<IHistoryRepository, HistoryRepository>();
 
 var app = builder.Build();
 

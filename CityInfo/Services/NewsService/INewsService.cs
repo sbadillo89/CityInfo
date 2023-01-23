@@ -2,7 +2,7 @@
 using NewsAPI.Constants;
 using NewsAPI.Models;
 
-namespace CityInfo.Services.NewsService
+namespace CityInfo.Services
 {
 	public interface INewsService
 	{

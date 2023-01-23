@@ -3,7 +3,7 @@ using System.Net.Http;
 using CityInfo.Models;
 using NewsAPI.Models;
 
-namespace CityInfo.Services.CountryService
+namespace CityInfo.Services
 {
     public class CountryService : ICountryService
     {

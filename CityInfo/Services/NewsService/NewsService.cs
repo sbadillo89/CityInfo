@@ -1,14 +1,8 @@
-﻿using System;
-using System.Net.Http;
-using CityInfo.Models;
-using Newtonsoft.Json;
-
-using NewsAPI;
-using NewsAPI.Models;
+﻿using NewsAPI;
 using NewsAPI.Constants;
-using System.Collections.Generic;
+using NewsAPI.Models;
 
-namespace CityInfo.Services.NewsService
+namespace CityInfo.Services
 {
     public class NewsService : INewsService
     {

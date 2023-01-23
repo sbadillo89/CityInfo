@@ -35,6 +35,8 @@
     <None Remove="NewsAPI" />
     <None Remove="Services\WeatherService\" />
     <None Remove="Services\CountryService\" />
+    <None Remove="Repositories\HistoryRepository\" />
+    <None Remove="Services\HistoryService\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />
@@ -43,5 +45,7 @@
     <Folder Include="Services\NewsService\" />
     <Folder Include="Services\WeatherService\" />
     <Folder Include="Services\CountryService\" />
+    <Folder Include="Repositories\HistoryRepository\" />
+    <Folder Include="Services\HistoryService\" />
   </ItemGroup>
 </Project>

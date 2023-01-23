@@ -1,11 +1,6 @@
-﻿using System;
-using System.Net.Http;
-using CityInfo.Models;
-using Microsoft.AspNetCore.Http;
-using NewsAPI.Models;
-using Newtonsoft.Json;
+﻿using CityInfo.Models;
 
-namespace CityInfo.Services.WeatherService
+namespace CityInfo.Services
 {
     public class WeatherService : IWeatherService
     {

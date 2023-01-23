@@ -1,7 +1,7 @@
 ﻿using System;
 using CityInfo.Models;
 
-namespace CityInfo.Services.WeatherService
+namespace CityInfo.Services
 {
 	public interface IWeatherService
 	{
