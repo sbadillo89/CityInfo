@@ -1,4 +1,5 @@
-﻿using CityInfo.Models;
+﻿using AutoMapper;
+using CityInfo.Models;
 using CityInfo.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
@@ -15,6 +16,7 @@ namespace CityInfo.Controllers
         private readonly IWeatherService _weatherService;
         private readonly ICountryService _countryService;
         private readonly IHistoryService _historyService;
+        private readonly IMapper _mapper;
 
         CountryInformation _countryInformation;
         List<Countries> _validCountriesNews;
@@ -23,13 +25,15 @@ namespace CityInfo.Controllers
                                 INewsService serviceNews,
                                 IWeatherService weatherService,
                                 ICountryService countryService,
-                                IHistoryService historyService)
+                                IHistoryService historyService,
+                                IMapper mapper)
         {
             _settings = settings;
             _newsService = serviceNews;
             _weatherService = weatherService;
             _countryService = countryService;
             _historyService = historyService;
+            _mapper = mapper;
 
             InitializeController();
         }
@@ -69,7 +73,7 @@ namespace CityInfo.Controllers
             }
             catch (Exception ex)
             {
-                return BadRequest(new Error { Message = ex.Message });
+                return BadRequest(new ErrorMessage { Message = ex.Message });
             }
         }
 

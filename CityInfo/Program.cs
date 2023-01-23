@@ -1,4 +1,5 @@
-﻿using CityInfo.Models;
+﻿using AutoMapper;
+using CityInfo.Models;
 using CityInfo.Repositories;
 using CityInfo.Services;
 using Microsoft.EntityFrameworkCore;
@@ -11,6 +12,14 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+var mappingConfig = new MapperConfiguration(mc =>
+{
+    mc.AddProfile(new CityInfo.MappingProfile());
+});
+IMapper mapper = mappingConfig.CreateMapper();
+builder.Services.AddSingleton(mapper);
+
 
 var formatSettings = builder.Configuration.GetSection("ExternalApiSettings").Get<ExternalApiSettings>();
 builder.Services.Configure<ExternalApiSettings>(builder.Configuration.GetSection("ExternalApiSettings"));
