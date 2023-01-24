@@ -7,6 +7,8 @@ namespace CityInfo.Repositories
     {
         Task<IEnumerable<History>> GetHistoryConsultation();
 
+        Task<History> GetByCountry(string country);
+
         void Create(History history);
 
         Task<bool> SaveChanges();

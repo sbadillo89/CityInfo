@@ -15,10 +15,12 @@ namespace CityInfo.Services
 
         public async Task AddHistory(History newHistory)
         {
-            _historyRepository.Create(newHistory);
-
-            await _historyRepository.SaveChanges();
-
+            var historyExists = await _historyRepository.GetByCountry(newHistory.Country);
+            if (historyExists == null)
+            {
+                _historyRepository.Create(newHistory);
+                await _historyRepository.SaveChanges();
+            }
         }
 
         public async Task<IEnumerable<History>> GetHistoryConsultation()

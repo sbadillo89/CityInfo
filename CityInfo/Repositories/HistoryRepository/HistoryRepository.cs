@@ -30,6 +30,11 @@ namespace CityInfo.Repositories
         {
             return Convert.ToBoolean(await _dbContext.SaveChangesAsync());
         }
+
+        public async Task<History> GetByCountry(string country)
+        {
+            return await _dbContext.Histories.FirstOrDefaultAsync(h=> h.Country == country);
+        }
     }
 }
 

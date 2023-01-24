@@ -25,7 +25,7 @@ public partial class SerbadTestContext : DbContext
 
             entity.ToTable("History");
 
-            entity.Property(e => e.City)
+            entity.Property(e => e.Country)
                 .HasMaxLength(50)
                 .IsUnicode(false);
             entity.Property(e => e.CreateDate)

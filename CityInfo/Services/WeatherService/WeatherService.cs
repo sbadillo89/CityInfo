@@ -14,7 +14,7 @@ namespace CityInfo.Services
         {
             try
             {
-                var requestUri = $"weather?q={country}&appid={apiKey}";
+                var requestUri = $"weather?q={country}&appid={apiKey}&units=metric";
 
                 var requestMsg = new HttpRequestMessage(HttpMethod.Get, requestUri);
                 var response = await _httpClient.SendAsync(requestMsg);

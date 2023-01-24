@@ -60,13 +60,12 @@ namespace CityInfo.Controllers
                 var newsApiKey = _settings.Value.NewsApi.ApiKey;
                 var weatherApiKey = _settings.Value.OpenWeather.ApiKey;
 
-                cityInformation.Name = countryCode;
+                cityInformation.Name = countryInfo.Name;
                 cityInformation.News = await _newsService.GetByCountry(country, newsApiKey);
 
                 cityInformation.CurrentWeather = await _weatherService.GetByCountry(countryInfo.Name, weatherApiKey);
 
-                //add DTO
-                var newHistory = new History { City = countryInfo.Name, Info = "Info" };
+                var newHistory = new History { Country = countryInfo.Name, Info = "Info" };
                 await _historyService.AddHistory(newHistory);
 
                 return Ok(cityInformation);
